@@ -8,14 +8,17 @@ const api =
         if (action.type !== actions.apiCallBegan.type) return next(action);
         
         const { method, data, onStart, onSuccess, onError } = action.payload;
-        const url = action.payload.url+'/'+action.payload.id
+        const keywords = action.payload.keywords?`&keywords=${action.payload.keywords}`:'';
+        const url = `${action.payload.url}?access_key=${action.payload.apiKey}&categories=${action.payload.category}${action.payload.keywords?`&keywords=${action.payload.keywords}`:''}`
+        console.log('Keywords: '+keywords)
+
         if (onStart) dispatch({ type: onStart });
 
         next(action);
 
         try {
             const response = await axios.request({
-                baseURL: "https://jsonplaceholder.typicode.com",
+                baseURL: "http://api.mediastack.com/v1/",
                 url,
                 method,
                 data,
@@ -24,7 +27,7 @@ const api =
             dispatch(actions.apiCallSuccess(response.data));
             //Specific
             if (onSuccess){
-                dispatch({ type: onSuccess, payload: response.data });
+                dispatch({ type: onSuccess, payload: {category:action.payload.category,data:response.data} });
             }
                 
         } catch (error) {
