@@ -10,7 +10,8 @@ const slice = createSlice({
         },
         keywords:'',
         loading: false,
-        category:''
+        category:'',
+        filter:false
     },
     reducers: {
         articlesRequested: (articles, action) => {
@@ -36,10 +37,13 @@ const slice = createSlice({
         setKeywords: (state,action) => {
             state.keywords = action.payload;
         },
+        setFilter: state => {
+            state.filter=!state.filter;
+        }
     },
 });
 
-export const { increment, decrement,setKeywords } = slice.actions;
+export const { increment, decrement, setKeywords, setFilter } = slice.actions;
 export default slice.reducer;
 
 
@@ -49,10 +53,11 @@ const url = "/news";
 
 const apiKey = "ea285b333da0243b90f789a85772e103";
 
-export const loadArticles = (category,keywords) => (dispatch) => {
-    console.log('Load articles: '+keywords)
+export const loadArticles = (category,keywords,filter) => (dispatch) => {
+    
     return dispatch(
         apiCallBegan({
+            filter,
             keywords,
             apiKey,
             category,

@@ -8,9 +8,10 @@ const api =
         if (action.type !== actions.apiCallBegan.type) return next(action);
         
         const { method, data, onStart, onSuccess, onError } = action.payload;
+        const filter = action.payload.filter?'&languages=en':'';
+        console.log('Filter: '+filter)
         const keywords = action.payload.keywords?`&keywords=${action.payload.keywords}`:'';
-        const url = `${action.payload.url}?access_key=${action.payload.apiKey}&categories=${action.payload.category}${action.payload.keywords?`&keywords=${action.payload.keywords}`:''}`
-        console.log('Keywords: '+keywords)
+        const url = `${action.payload.url}?access_key=${action.payload.apiKey}&categories=${action.payload.category}${keywords}${filter}`
 
         if (onStart) dispatch({ type: onStart });
 

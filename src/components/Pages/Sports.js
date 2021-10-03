@@ -7,10 +7,11 @@ function Sports(){
 
     const articles = useSelector((state) => state.articles.data);
     const keywords = useSelector((state) => state.keywords);
+    const filter = useSelector((state) => state.filter);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(loadArticles('sports',keywords));
+        dispatch(loadArticles('sports',keywords,filter));
     }, [dispatch]);
     console.log('Keywords: '+keywords)
     return(

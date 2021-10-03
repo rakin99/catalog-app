@@ -7,10 +7,11 @@ function Technologies(){
 
     const articles = useSelector((state) => state.articles.data);
     const keywords = useSelector((state) => state.keywords);
+    const filter = useSelector((state) => state.filter);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(loadArticles('technology',keywords));
+        dispatch(loadArticles('technology',keywords,filter));
     }, [dispatch]);
     console.log('Keywords: '+keywords)
     return(
