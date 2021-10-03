@@ -11,7 +11,8 @@ const slice = createSlice({
         keywords:'',
         loading: false,
         category:'',
-        filter:false
+        filter:false,
+        sort:'published_desc'
     },
     reducers: {
         articlesRequested: (articles, action) => {
@@ -22,6 +23,7 @@ const slice = createSlice({
             console.log(action.payload)
             articles.articles = action.payload.data;
             articles.category = action.payload.category;
+            articles.sort = action.payload.sort;
             articles.loading = false;
         },
 
@@ -39,11 +41,15 @@ const slice = createSlice({
         },
         setFilter: state => {
             state.filter=!state.filter;
+        },
+        setSort: (state,action) => {
+            console.log('Set sort!')
+            state.sort = action.payload
         }
     },
 });
 
-export const { increment, decrement, setKeywords, setFilter } = slice.actions;
+export const { increment, decrement, setKeywords, setFilter, setSort } = slice.actions;
 export default slice.reducer;
 
 
@@ -53,10 +59,11 @@ const url = "/news";
 
 const apiKey = "ea285b333da0243b90f789a85772e103";
 
-export const loadArticles = (category,keywords,filter) => (dispatch) => {
-    
+export const loadArticles = (category,keywords,filter,sort) => (dispatch) => {
+    console.log('\n\tLoad articles!\n')
     return dispatch(
         apiCallBegan({
+            sort,
             filter,
             keywords,
             apiKey,

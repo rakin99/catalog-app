@@ -8,12 +8,13 @@ function Technologies(){
     const articles = useSelector((state) => state.articles.data);
     const keywords = useSelector((state) => state.keywords);
     const filter = useSelector((state) => state.filter);
+    const sort = useSelector((state) => state.sort)
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(loadArticles('technology',keywords,filter));
+        dispatch(loadArticles('technology',keywords,filter,sort));
     }, [dispatch]);
-    console.log('Keywords: '+keywords)
+    
     return(
         <section>
             {articles.map((article,i) => {
