@@ -1,0 +1,103 @@
+header {
+    
+    nav{
+        width: 70%;
+        position: fixed;
+        background-color: rgb(220, 216, 216);
+        border-end-end-radius: 10px;
+        border-end-start-radius: 10px;
+    }
+
+    li{
+        display: inline;
+        padding-right: 1px;
+    }
+
+    .f-right{
+        float: right;
+    }
+
+    button{
+        margin-left: 1px;
+        color:white;
+        font-size: 15pt;
+        border-radius: 5px;
+        background-color: cornflowerblue;
+        border-style: none;
+        padding: 5px;
+    }
+
+    a{
+        font-size: 15pt;
+        text-decoration: none;
+        padding: 5px;
+        color:white;
+        background-color: cornflowerblue;
+        border-radius: 5px;
+    }
+
+    .link-active{
+        background-color: rgb(55, 100, 184);
+    }
+    
+    a:hover, button:hover{
+        background-color: rgb(55, 100, 184);
+    }
+    
+    select{
+        margin-right: 20px;
+        color: rgb(55, 100, 184);
+        font-size: 12pt;
+        border:1px solid cornflowerblue;
+        border-radius: 5px;
+    }
+
+    select:focus{
+        outline: none !important;
+        border:1px solid cornflowerblue;
+        box-shadow: 0 0 10px cornflowerblue;
+    }
+    
+    .pl-100{
+        padding-left: 100px;
+    }
+
+    .underline{
+        padding-bottom: 6px;
+        border-bottom-style: solid;
+        border-color: cornflowerblue;
+        border-width: 1px;
+    }
+
+    input[type="search" i]{
+        color: rgb(55, 100, 184);
+        font-size: 15pt;
+        border:1px solid cornflowerblue;
+        border-radius: 5px;
+    }
+
+    input[type="search" i]:focus{
+        outline: none !important;
+        border:1px solid cornflowerblue;
+        box-shadow: 0 0 10px cornflowerblue;
+    }
+
+    input[type="checkbox" i]{
+        width: 1em;
+        height: 1em;
+        margin-top: .25em;
+        vertical-align: top;
+        background-color: #fff;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        border: 1px solid cornflowerblue;
+        appearance: none;
+        border-radius: 3px;
+        margin-right: 20px;
+    }
+
+    input[type="checkbox" i]:checked {
+        background-image: url('../img/check-mark.png');
+    }
+}

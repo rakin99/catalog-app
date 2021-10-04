@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import Navigation from "./Navigation";
+import './Header.scss'
 
 function Header(){
     return(
-        <header style={{background:'yellow'}}>
-            <h1>Header</h1>
+        <header>
             <Navigation />
         </header>
     )

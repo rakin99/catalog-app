@@ -5,6 +5,7 @@ import Content from './components/Content';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import {BrowserRouter as Router, Redirect} from "react-router-dom";
+import './index.scss'
 
 function App() {
 
@@ -17,13 +18,11 @@ function App() {
   // }, [dispatch]);
 
   return (
-    <main>
       <Router>
         <Header />
         <Content />
         <Footer />
       </Router>
-    </main>
   );
 }
 

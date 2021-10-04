@@ -14,34 +14,25 @@ function Navigation(){
     return(
         <nav>
             <ul>
-                <li>
-                    <NavLink exact to="/technologies/">
+                <li className='underline'>
+                    <NavLink exact to="/technologies/" activeClassName="link-active">
                         <b>Technologies</b>
                     </NavLink>
                 </li>
-                <li>
-                    <NavLink to="/sports/">
+                <li className='underline'>
+                    <NavLink to="/sports/" activeClassName="link-active">
                         <b>Sports</b>
                     </NavLink>
                 </li>
-                <li>
-                    <input type="text" value={keywords} onChange={e => {
+                <li className='pl-100 underline'>
+                    <input type="search" value={keywords} onChange={e => {
                                                                     dispatch(setKeywords(e.target.value))
                                                                 }}
                     />
-                    <button onClick={() =>dispatch(loadArticles(category,keywords,filter,sort))}>Search</button>
+                    <button onClick={() =>dispatch(loadArticles(category,keywords,filter,sort))}><b>Search</b></button>
                 </li>
-                <li>
-                    Filter and display only articles on English?
-                    <input type="checkbox" value={filter} onChange={() => {
-                                                                            dispatch(setFilter())
-                                                                            dispatch(loadArticles(category,keywords,!filter,sort))
-                                                                            }
-                                                                    }
-                    />
-                </li>
-                <li>
-                    Articles sort:
+                <li className='f-right'>
+                    Sort articles:
                     <select value={sort} onChange={e => {
                                                             dispatch(setSort(e.target.value))
                                                             dispatch(loadArticles(category,keywords,filter,e.target.value))
@@ -51,7 +42,19 @@ function Navigation(){
                         <option value='published_desc'>DESC</option>
                         <option value='published_asc'>ASC</option>
                     </select>
+                    <div>
+                    Only English articles?
+                        <input type="checkbox" value={filter} onChange={() => {
+                                                                                dispatch(setFilter())
+                                                                                dispatch(loadArticles(category,keywords,!filter,sort))
+                                                                                }
+                                                                        }
+                        />
+                    </div>
                 </li>
+                {/* <li className='f-right'>
+                    
+                </li> */}
             </ul>
         </nav>
     )
