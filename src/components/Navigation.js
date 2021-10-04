@@ -16,7 +16,7 @@ function Navigation(){
             <ul>
                 <li className='underline'>
                     <NavLink exact to="/technologies/" activeClassName="link-active">
-                        <b>Technologies</b>
+                        <b>Technology</b>
                     </NavLink>
                 </li>
                 <li className='underline'>
