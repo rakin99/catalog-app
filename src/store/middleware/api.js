@@ -9,7 +9,6 @@ const api =
         
         const { method, data, onStart, onSuccess, onError, sort, offset } = action.payload;
         const filter = action.payload.filter?'&languages=en':'';
-        console.log('Offset: '+offset)
         const keywords = action.payload.keywords?`&keywords=${action.payload.keywords}`:'';
         const url = `${action.payload.url}?access_key=${action.payload.apiKey}&categories=${action.payload.category}${keywords}${filter}&sort=${sort}&offset=${offset}`
 

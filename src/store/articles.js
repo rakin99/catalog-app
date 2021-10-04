@@ -21,7 +21,6 @@ const slice = createSlice({
         },
 
         articlesReceived: (articles, action) => {
-            console.log(action.payload.data)
             if(action.payload.scroll==='scroll'){
                 action.payload.data.data.map(article=>{
                     articles.articles.data.push(article);
@@ -70,10 +69,9 @@ const { articlesRequested, articlesReceived, articlesRequestFailed } = slice.act
 
 const url = "/news";
 
-const apiKey = "ef48b4be0bc0b5805f013699bb6b9e67";
+const apiKey = "7747f92949dd8c4de7ad7fef9e3693ad";
 
 export const loadArticles = (category,keywords,filter,sort,offset,scroll) => (dispatch) => {
-    console.log('\n\tLoad articles!\n')
         return dispatch(
             apiCallBegan({
                 offset,

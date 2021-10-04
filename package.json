@@ -1,4 +1,5 @@
 {
+  "proxy": "http://api.mediastack.com",
   "name": "catalog-app",
   "version": "0.1.0",
   "private": true,
