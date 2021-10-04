@@ -24,10 +24,10 @@ function Sports(){
                 dataLength={articles.length}
                 next={() => dispatch(loadArticles('sports',keywords,filter,sort,offset,'scroll'))}
                 hasMore={offset==total?false:true}
-                loader={<h4>Loading...</h4>}
+                loader={<h4 className='text-center'>Loading...</h4>}
                 endMessage={
-                    <p>
-                        <b>Yay! You have seen it all</b>
+                    <p className='text-center'>
+                        <b>Yay! You have seen it all.</b>
                     </p>
                 }
             >

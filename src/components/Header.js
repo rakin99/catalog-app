@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import Navigation from "./Navigation";
-import './Header.scss'
+import '../scss/Header.scss'
 
 function Header(){
     return(
